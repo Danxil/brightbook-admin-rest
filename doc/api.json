@@ -1,0 +1,17 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "sails-rest-api",
+    "description": "Move your app forward with the sails-rest-api API",
+    "version": "1.0.0"
+  },
+  "host": "api.sails-rest-api.com",
+  "schemes": [
+    "https"
+  ],
+  "basePath": "/v1",
+  "produces": [
+    "application/json"
+  ],
+  "paths": {}
+}

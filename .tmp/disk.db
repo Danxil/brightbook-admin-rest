@@ -1,0 +1,51 @@
+{
+  "data": {
+    "user": []
+  },
+  "schema": {
+    "user": {
+      "username": {
+        "type": "string",
+        "unique": true
+      },
+      "password": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string",
+        "unique": true
+      },
+      "firstName": {
+        "type": "string",
+        "defaultsTo": ""
+      },
+      "lastName": {
+        "type": "string",
+        "defaultsTo": ""
+      },
+      "photo": {
+        "type": "string",
+        "defaultsTo": ""
+      },
+      "socialProfiles": {
+        "type": "string",
+        "defaultsTo": {}
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    }
+  },
+  "counters": {
+    "user": {}
+  }
+}

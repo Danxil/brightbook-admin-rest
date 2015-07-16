@@ -1,0 +1,79 @@
+{
+  "name": "apn",
+  "description": "An interface to the Apple Push Notification service for Node.js",
+  "version": "1.7.4",
+  "author": {
+    "name": "Andrew Naylor",
+    "email": "argon@mkbot.net"
+  },
+  "contributors": [
+    {
+      "name": "Andrew Naylor",
+      "email": "argon@mkbot.net"
+    }
+  ],
+  "keywords": [
+    "apple",
+    "push",
+    "push notifications",
+    "iOS",
+    "apns",
+    "notifications"
+  ],
+  "main": "index.js",
+  "bugs": {
+    "url": "https://github.com/argon/node-apn/issues",
+    "email": "argon@mkbot.net"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/argon/node-apn.git"
+  },
+  "dependencies": {
+    "debug": "^2.1.3",
+    "node-forge": "^0.6.20",
+    "q": "^1.1.0"
+  },
+  "devDependencies": {
+    "chai": "2.x",
+    "chai-as-promised": "*",
+    "lolex": "^1.2.1",
+    "mocha": "*",
+    "rewire": "^2.3.0",
+    "sinon": "^1.12.2",
+    "sinon-chai": "^2.6.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "jshintConfig": {
+    "node": true
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "license": "MIT",
+  "gitHead": "482a149518e3b7a9ed80079d491374d2060db687",
+  "homepage": "https://github.com/argon/node-apn",
+  "_id": "apn@1.7.4",
+  "_shasum": "0845c4563de912aa1787abcb5bde895ac83b2d4d",
+  "_from": "apn@*",
+  "_npmVersion": "2.7.3",
+  "_nodeVersion": "0.12.4",
+  "_npmUser": {
+    "name": "argon",
+    "email": "argon@mkbot.net"
+  },
+  "maintainers": [
+    {
+      "name": "argon",
+      "email": "argon@mkbot.net"
+    }
+  ],
+  "dist": {
+    "shasum": "0845c4563de912aa1787abcb5bde895ac83b2d4d",
+    "tarball": "http://registry.npmjs.org/apn/-/apn-1.7.4.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/apn/-/apn-1.7.4.tgz"
+}
