@@ -5,5 +5,12 @@
  */
 
 module.exports.bootstrap = function (cb) {
-  cb();
+  var books = [{name: 'book1'}, {name: 'book2'}, {name: 'book3'}]
+  var categories = [{name: 'category1'}, {name: 'category2'}, {name: 'category3'}]
+
+  Book.create(books).exec(function() {
+    Category.create(categories).exec(function() {
+      cb()
+    })
+  })
 };
