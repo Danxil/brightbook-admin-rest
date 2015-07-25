@@ -70,5 +70,5 @@ module.exports.blueprints = {
    * The default number of records to show in the response from a "find" action
    * @type {Number}
    */
-  defaultLimit: 5
+  //defaultLimit: 5
 };
