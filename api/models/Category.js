@@ -14,6 +14,14 @@ module.exports = {
       unique: true,
       alphanumericdashed: true
     },
+    bg: {
+      type: 'string',
+    },
+    headerColor: {
+      model: 'HeaderColor',
+      via: 'color',
+      required: true
+    },
     books: {
       collection: 'book',
       via: 'categories'

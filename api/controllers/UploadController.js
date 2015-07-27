@@ -10,7 +10,6 @@ module.exports = {
    * @param {Object} res Response object
    */
   index: function (req, res) {
-    // TODO: implement uploading binary files to storage
-    res.badRequest(null, null, 'Not implemented yet');
+    var dropbox = StorageService.createDropbox()
   }
 };

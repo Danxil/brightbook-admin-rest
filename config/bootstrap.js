@@ -5,12 +5,27 @@
  */
 
 module.exports.bootstrap = function (cb) {
-  var books = [{name: 'book1'}, {name: 'book2'}, {name: 'book3'}]
-  var categories = [{name: 'category1'}, {name: 'category2'}, {name: 'category3'}]
+	var headerColors = [
+		{color: 'white'},
+		{color: 'black'}
+	]
+	var books = [
+		{name: 'book1'},
+		{name: 'book2'},
+		{name: 'book3'}
+	]
+	var categories = [
+	  	{name: 'category1', headerColor: 1},
+		{name: 'category2', headerColor: 2},
+		{name: 'category3', headerColor: 1}
+	]
+	
 
-  Book.create(books).exec(function() {
-    Category.create(categories).exec(function() {
-      cb()
-    })
+  HeaderColor.create(headerColors).exec(function() {
+	Book.create(books).exec(function() {
+		Category.create(categories).exec(function() {
+			cb()
+		})
+	})
   })
 };

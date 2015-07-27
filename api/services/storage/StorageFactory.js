@@ -1,5 +1,6 @@
 var AmazonStorage = require('./AmazonStorage');
 var GCloudStorage = require('./GCloudStorage');
+var DropboxStorage = require('./DropboxStorage');
 
 /**
  * Storage factory class
@@ -23,6 +24,8 @@ StorageFactory.prototype = Object.create({
         return this.createAmazon(options);
       case 'gcloud':
         return this.createGCloud(options);
+      case 'dropbox':
+        return this.createDropbox(options);  
       default:
         throw new Error('Unrecognized type -> ' + type);
     }
@@ -44,6 +47,9 @@ StorageFactory.prototype = Object.create({
    */
   createGCloud: function (options) {
     return new GCloudStorage(options);
+  },
+  createDropbox: function (options) {
+    return new DropboxStorage(options);
   }
 });
 
