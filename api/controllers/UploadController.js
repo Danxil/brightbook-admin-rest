@@ -10,6 +10,6 @@ module.exports = {
    * @param {Object} res Response object
    */
   index: function (req, res) {
-    var dropbox = StorageService.createDropbox()
+    //var dropbox = StorageService.createDropbox()
   }
 };

@@ -4,4 +4,6 @@
  * Your routes map URLs to views and controllers
  */
 
-module.exports.routes = {};
+module.exports.routes = {
+  'post /api/category': 'CategoryController.create',
+};
