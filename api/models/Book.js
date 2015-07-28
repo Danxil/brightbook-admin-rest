@@ -12,7 +12,6 @@ module.exports = {
       type: 'string',
       required: true,
       unique: true,
-      alphanumericdashed: true
     },
     categories: {
       collection: 'category',

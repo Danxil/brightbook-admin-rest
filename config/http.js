@@ -4,6 +4,9 @@
  * Configuration for the underlying HTTP server in Sails
  */
 
+var path = require('path')
+var express = require('express')
+
 module.exports.http = {
   /**
    * This is the options object for the `createServer` method, as discussed here:
@@ -18,7 +21,7 @@ module.exports.http = {
    * @param app Express application
    */
   customMiddleware: function (app) {
-
+    app.use('/media', express.static(path.join(process.cwd(), 'media')))
   },
 
   /**

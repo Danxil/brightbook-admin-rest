@@ -6,4 +6,5 @@
 
 module.exports.routes = {
   'post /api/category': 'CategoryController.create',
+  'put /api/category/:id': 'CategoryController.edit',
 };

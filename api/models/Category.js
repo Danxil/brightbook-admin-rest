@@ -12,7 +12,6 @@ module.exports = {
       type: 'string',
       required: true,
       unique: true,
-      alphanumericdashed: true
     },
     bg: {
       type: 'string',
