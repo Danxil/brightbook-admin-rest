@@ -31,7 +31,7 @@ module.exports = {
           deffArr.push(def.promise())
 
           UploadModel.create({link: item}).then(function(uploadModel) {
-            def.resolve(dataModel.bg.add(uploadModel.id))
+            def.resolve(dataModel[params.property + 's'].add(uploadModel.id))
           }, function() {
             def.reject()
           })
@@ -40,17 +40,17 @@ module.exports = {
         vow.all(deffArr).then(function() {
           dataModel.save().then(function(dataModel) {
             res.send(201, dataModel)
-          }, function() {
-            res.serverError()
+          }, function(err) {
+            res.serverError(err)
           })
-        }, function() {
-          res.serverError('Create UploadModel error')
+        }, function(err) {
+          res.serverError(err)
         })
-      }, function() {
-        res.serverError('Upload error')
+      }, function(err) {
+        res.serverError(err)
       })
-    }, function() {
-      res.serverError('Find error')
+    }, function(err) {
+      res.serverError(err)
     })
   },
 
@@ -61,7 +61,11 @@ module.exports = {
     var DataModel = req._sails.models[params.model]
     var UploadModel = req._sails.models[params.model + params.property]
 
-    UploadModel.findOne({id: params.uploadId, category: params.id}).then(function(uploadModel) {
+    var condition = {}
+    condition.id = params.uploadId
+    condition[params.model] = params.id
+
+    UploadModel.findOne(condition).then(function(uploadModel) {
       if (!uploadModel)
         return res.serverError('Not found UploadModel')
 
@@ -71,12 +75,12 @@ module.exports = {
             res.send(dataModel)
           })
         })
-      }, function() {
-        res.serverError('Remove file error')
+      }, function(err) {
+        res.serverError(err)
       })
 
-    }, function() {
-      res.serverError('Find error')
+    }, function(err) {
+      res.serverError(err)
     })
   }
 };

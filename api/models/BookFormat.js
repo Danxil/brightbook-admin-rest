@@ -15,7 +15,7 @@ module.exports = {
     },
     books: {
       collection: 'Book',
-      via: 'bookFormat'
+      via: 'format'
     }
   }
 };

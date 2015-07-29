@@ -13,16 +13,24 @@ module.exports = {
       required: true,
       unique: true,
     },
-    bookImages: {
+    images: {
       collection: 'BookImage',
       via: 'book'
     },
-    bookBanners: {
+    banners: {
       collection: 'BookBanner',
       via: 'book'
     },
-    bookPreviews: {
+    previews: {
       collection: 'bookPreview',
+      via: 'book'
+    },
+    pdfLinks: {
+      collection: 'PdfLink',
+      via: 'book'
+    },
+    epubLinks: {
+      collection: 'EpubLink',
       via: 'book'
     },
     categories: {
@@ -37,14 +45,14 @@ module.exports = {
       collection: 'Author',
       via: 'books'
     },
-    bookReviews: {
+    reviews: {
       collection: 'BookReview',
       via: 'book'
     },
-    bookReason: {
+    reason: {
       model: 'BookReason',
     },
-    bookFormat: {
+    format: {
       model: 'BookFormat'
     },
     coverType: {
@@ -70,14 +78,6 @@ module.exports = {
     },
     length: {
       type: 'integer',
-    },
-    pdfLinks: {
-      collection: 'PdfLink',
-      via: 'book'
-    },
-    epubLinks: {
-      collection: 'EpubLink',
-      via: 'book'
     }
   }
 };

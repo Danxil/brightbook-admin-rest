@@ -13,7 +13,7 @@ module.exports = {
       required: true,
       unique: true,
     },
-    bg: {
+    bgs: {
       collection: 'CategoryBg',
       via: 'category'
     },
