@@ -15,17 +15,17 @@ module.exports.bootstrap = function (cb) {
 		{name: 'book3'}
 	]
 	var categories = [
-	  	{name: 'category1', headerColor: 1},
+	  {name: 'category1', headerColor: 1},
 		{name: 'category2', headerColor: 2},
 		{name: 'category3', headerColor: 1}
 	]
 	
 
   HeaderColor.create(headerColors).exec(function() {
-	Book.create(books).exec(function() {
-		Category.create(categories).exec(function() {
-			cb()
+		Book.create(books).exec(function() {
+			Category.create(categories).exec(function() {
+				cb()
+			})
 		})
-	})
   })
 };

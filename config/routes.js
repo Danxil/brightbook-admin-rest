@@ -5,6 +5,6 @@
  */
 
 module.exports.routes = {
-  'post /api/category': 'CategoryController.create',
-  'put /api/category/:id': 'CategoryController.edit',
+  'post /api/upload/:model/:id/:property': 'UploadController.upload',
+  'delete /api/upload/:model/:id/:property/:uploadId': 'UploadController.remove',
 };

@@ -14,7 +14,8 @@ module.exports = {
       unique: true,
     },
     bg: {
-      type: 'string',
+      collection: 'CategoryBg',
+      via: 'category'
     },
     headerColor: {
       model: 'HeaderColor',
@@ -22,7 +23,7 @@ module.exports = {
       required: true
     },
     books: {
-      collection: 'book',
+      collection: 'Book',
       via: 'categories'
     }
   }

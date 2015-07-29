@@ -12,10 +12,9 @@ module.exports = {
       type: 'string',
       required: true,
       unique: true,
-      alphanumericdashed: true
     },
     books: {
-      collection: 'book',
+      collection: 'Book',
       via: 'authors'
     }
   }

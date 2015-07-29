@@ -13,51 +13,71 @@ module.exports = {
       required: true,
       unique: true,
     },
+    bookImages: {
+      collection: 'BookImage',
+      via: 'book'
+    },
+    bookBanners: {
+      collection: 'BookBanner',
+      via: 'book'
+    },
+    bookPreviews: {
+      collection: 'bookPreview',
+      via: 'book'
+    },
     categories: {
-      collection: 'category',
+      collection: 'Category',
+      via: 'books'
+    },
+    rubrics: {
+      collection: 'Rubric',
       via: 'books'
     },
     authors: {
-      collection: 'author',
+      collection: 'Author',
       via: 'books'
     },
-    reviews: {
-      collection: 'review',
-      via: 'books'
+    bookReviews: {
+      collection: 'BookReview',
+      via: 'book'
     },
-    format: {
-      model: 'format'
+    bookReason: {
+      model: 'BookReason',
+    },
+    bookFormat: {
+      model: 'BookFormat'
     },
     coverType: {
-      model: 'coverType'
+      model: 'CoverType'
     },
-    preceE: {
+    priceE: {
       type: 'integer',
-      required: true
     },
-    preceA: {
+    priceA: {
       type: 'integer',
-      required: true
     },
     countReeditions: {
       type: 'integer',
-      required: true
     },
     recommendRetailPrice: {
       type: 'integer',
-      required: true
     },
     about: {
       type: 'string',
-      required: true
     },
     dateFirstEdition: {
       type: 'date',
-      required: true
     },
     length: {
       type: 'integer',
-      required: true
+    },
+    pdfLinks: {
+      collection: 'PdfLink',
+      via: 'book'
+    },
+    epubLinks: {
+      collection: 'EpubLink',
+      via: 'book'
     }
   }
 };

@@ -14,7 +14,7 @@ module.exports = {
       unique: true
     },
     books: {
-      collection: 'book',
+      collection: 'Book',
       via: 'coverType'
     }
   }
