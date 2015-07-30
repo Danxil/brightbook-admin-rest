@@ -10,9 +10,15 @@ module.exports.bootstrap = function (cb) {
 		{color: 'black'}
 	]
 	var books = [
-		{name: 'book1'},
-		{name: 'book2'},
-		{name: 'book3'}
+		{
+			name: 'book1',
+		},
+		{
+			name: 'book2',
+		},
+		{
+			name: 'book3',
+		}
 	]
 	var categories = [
 	  {name: 'category1', headerColor: 1},

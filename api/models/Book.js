@@ -75,9 +75,16 @@ module.exports = {
     },
     dateFirstEdition: {
       type: 'date',
+      notNull: true,
     },
     length: {
       type: 'integer',
+    },
+    toJSON: function() {
+      var obj = this.toObject()
+      obj.dateFirstEdition = obj.dateFirstEdition != '0000-00-00' ? obj.dateFirstEdition : null
+
+      return obj
     }
   }
 };
