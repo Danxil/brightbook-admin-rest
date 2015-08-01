@@ -6,6 +6,15 @@
  */
 
 module.exports = {
-	
+	get: function(req, res) {
+    BookReview.find({book: req.params.bookId})
+      .populate('book')
+      .populate('avatars')
+      .then(function(BookReviews) {
+        res.ok(BookReviews)
+      }, function(err) {
+        res.serverError(err)
+      })
+  }
 };
 

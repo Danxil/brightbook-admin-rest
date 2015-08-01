@@ -1,5 +1,5 @@
 /**
-* BookReview.js
+* BookReviewAvatar.js
 *
 * @description :: TODO: You might write a short summary of how this model works and what it represents here.
 * @docs        :: http://sailsjs.org/#!documentation/models
@@ -8,21 +8,14 @@
 module.exports = {
 
   attributes: {
-    text: {
+    link: {
       type: 'string',
       required: true,
+      unique: true
     },
-    author: {
-      type: 'string',
-      required: true,
+    bookReview: {
+      model: 'BookReview',
     },
-    avatars: {
-      collection: 'BookReviewAvatar',
-      via: 'bookReview'
-    },
-    book: {
-      model: 'book'
-    }
   }
 };
 

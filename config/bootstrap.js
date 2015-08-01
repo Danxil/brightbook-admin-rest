@@ -12,12 +12,30 @@ module.exports.bootstrap = function (cb) {
 	var books = [
 		{
 			name: 'book1',
+			priceE: 21,
+			priceA: 22,
+			countReeditions: 1,
+			recommendRetailPrice: 243,
+			dateFirstEdition: 4,
+			length: 12,
 		},
 		{
 			name: 'book2',
+			priceE: 21,
+			priceA: 22,
+			countReeditions: 1,
+			recommendRetailPrice: 243,
+			dateFirstEdition: 4,
+			length: 12,
 		},
 		{
 			name: 'book3',
+			priceE: 21,
+			priceA: 22,
+			countReeditions: 1,
+			recommendRetailPrice: 243,
+			dateFirstEdition: 4,
+			length: 12,
 		}
 	]
 	var categories = [
@@ -25,12 +43,19 @@ module.exports.bootstrap = function (cb) {
 		{name: 'category2', headerColor: 2},
 		{name: 'category3', headerColor: 1}
 	]
-	
 
-  HeaderColor.create(headerColors).exec(function() {
+	var bookReviews = [
+		{text: 'review1', author: 'author1', book: 1},
+		{text: 'review2', author: 'author2', book: 1},
+		{text: 'review3', author: 'author3', book: 2}
+	]
+
+	HeaderColor.create(headerColors).exec(function() {
 		Book.create(books).exec(function() {
 			Category.create(categories).exec(function() {
-				cb()
+				BookReview.create(bookReviews).exec(function() {
+					cb()
+				})
 			})
 		})
   })
