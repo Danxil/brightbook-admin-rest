@@ -9,6 +9,13 @@ module.exports.bootstrap = function (cb) {
 		{color: 'white'},
 		{color: 'black'}
 	]
+
+	var coverTypes = [
+		{name: '10/30/20'},
+		{name: '20/30/40'},
+		{name: '150/200/100'}
+	]
+
 	var books = [
 		{
 			name: 'book1',
@@ -18,6 +25,7 @@ module.exports.bootstrap = function (cb) {
 			recommendRetailPrice: 243,
 			dateFirstEdition: 4,
 			length: 12,
+			coverType: 1
 		},
 		{
 			name: 'book2',
@@ -51,10 +59,12 @@ module.exports.bootstrap = function (cb) {
 	]
 
 	HeaderColor.create(headerColors).exec(function() {
-		Book.create(books).exec(function() {
-			Category.create(categories).exec(function() {
-				BookReview.create(bookReviews).exec(function() {
-					cb()
+		CoverType.create(coverTypes).exec(function() {
+			Book.create(books).exec(function () {
+				Category.create(categories).exec(function () {
+					BookReview.create(bookReviews).exec(function () {
+						cb()
+					})
 				})
 			})
 		})

@@ -49,8 +49,9 @@ module.exports = {
       collection: 'BookReview',
       via: 'book'
     },
-    reason: {
-      model: 'BookReason',
+    reasons: {
+      collection: 'BookReason',
+      via: 'book'
     },
     format: {
       model: 'BookFormat'
