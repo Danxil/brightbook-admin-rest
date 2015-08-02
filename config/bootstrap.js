@@ -60,10 +60,18 @@ module.exports.bootstrap = function (cb) {
 
 	HeaderColor.create(headerColors).exec(function() {
 		CoverType.create(coverTypes).exec(function() {
-			Book.create(books).exec(function () {
-				Category.create(categories).exec(function () {
-					BookReview.create(bookReviews).exec(function () {
-						cb()
+			Category.create(categories).exec(function(err, categories) {
+				Book.create(books).exec(function(err, books) {
+					books[0].categories.add(categories[0].id)
+
+					books[0].save().then(function() {
+
+						books[0].categories.add(categories[1].id)
+						books[0].save().then(function() {
+							BookReview.create(bookReviews).exec(function () {
+								cb()
+							})
+						})
 					})
 				})
 			})

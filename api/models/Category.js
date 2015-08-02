@@ -19,7 +19,6 @@ module.exports = {
     },
     headerColor: {
       model: 'HeaderColor',
-      via: 'color',
       required: true
     },
     books: {
