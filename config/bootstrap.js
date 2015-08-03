@@ -46,10 +46,17 @@ module.exports.bootstrap = function (cb) {
 			length: 12,
 		}
 	]
+
 	var categories = [
 	  {name: 'category1', headerColor: 1},
 		{name: 'category2', headerColor: 2},
 		{name: 'category3', headerColor: 1}
+	]
+
+	var rubrics = [
+		{name: 'rubric1', color: '#FF0000'},
+		{name: 'rubric2', color: '#FF0000'},
+		{name: 'rubric3', color: '#FF0000'}
 	]
 
 	var bookReviews = [
@@ -58,23 +65,37 @@ module.exports.bootstrap = function (cb) {
 		{text: 'review3', author: 'author3', book: 2}
 	]
 
-	HeaderColor.create(headerColors).exec(function() {
-		CoverType.create(coverTypes).exec(function() {
-			Category.create(categories).exec(function(err, categories) {
-				Book.create(books).exec(function(err, books) {
-					books[0].categories.add(categories[0].id)
+	var authors = [
+		{name: 'author1'},
+		{name: 'author2'},
+		{name: 'author3'}
+	]
 
-					books[0].save().then(function() {
+	Author.create(authors).exec(function(err, authors) {
+		HeaderColor.create(headerColors).exec(function () {
+			CoverType.create(coverTypes).exec(function () {
+				Rubric.create(rubrics).exec(function (err, rubrics) {
+					Category.create(categories).exec(function (err, categories) {
+						Book.create(books).exec(function (err, books) {
+							books[0].categories.add(categories[0].id)
+							books[0].rubrics.add(rubrics[0].id)
+							books[0].authors.add(authors[0].id)
 
-						books[0].categories.add(categories[1].id)
-						books[0].save().then(function() {
-							BookReview.create(bookReviews).exec(function () {
-								cb()
+							books[0].save().then(function () {
+								books[1].categories.add(categories[0].id)
+								books[1].rubrics.add(rubrics[0].id)
+								books[1].authors.add(authors[0].id)
+
+								books[1].save().then(function () {
+									BookReview.create(bookReviews).exec(function () {
+										cb()
+									})
+								})
 							})
 						})
 					})
 				})
 			})
 		})
-  })
+	})
 };

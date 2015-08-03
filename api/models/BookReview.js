@@ -10,11 +10,9 @@ module.exports = {
   attributes: {
     text: {
       type: 'string',
-      required: true,
     },
     author: {
       type: 'string',
-      required: true,
     },
     avatars: {
       collection: 'BookReviewAvatar',

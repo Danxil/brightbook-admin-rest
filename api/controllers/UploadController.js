@@ -16,8 +16,8 @@ module.exports = {
     var params = req.params
     var localStorage = StorageService.createLocal(path.join(sails.config.dirs.media, params.model, params.property))
 
-    var DataModel = req._sails.models[params.model]
-    var UploadModel = req._sails.models[params.model + params.property]
+    var DataModel = req._sails.models[params.model.toLowerCase()]
+    var UploadModel = req._sails.models[params.model.toLowerCase() + params.property.toLowerCase()]
 
     DataModel.findOne({id: params.id}).then(function(dataModel) {
       if (!dataModel)
@@ -58,8 +58,8 @@ module.exports = {
     var params = req.params
     var localStorage = StorageService.createLocal(path.join(sails.config.dirs.media, params.model, params.property))
 
-    var DataModel = req._sails.models[params.model]
-    var UploadModel = req._sails.models[params.model + params.property]
+    var DataModel = req._sails.models[params.model.toLowerCase()]
+    var UploadModel = req._sails.models[params.model.toLowerCase() + params.property.toLowerCase()]
 
     var condition = {}
     condition.id = params.uploadId

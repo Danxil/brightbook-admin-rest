@@ -26,11 +26,11 @@ module.exports = {
       via: 'book'
     },
     pdfLinks: {
-      collection: 'PdfLink',
+      collection: 'BookPdfLink',
       via: 'book'
     },
     epubLinks: {
-      collection: 'EpubLink',
+      collection: 'BookEpubLink',
       via: 'book'
     },
     categories: {

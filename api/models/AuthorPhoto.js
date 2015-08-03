@@ -1,5 +1,5 @@
 /**
-* Author.js
+* AuthorPhoto.js
 *
 * @description :: TODO: You might write a short summary of how this model works and what it represents here.
 * @docs        :: http://sailsjs.org/#!documentation/models
@@ -8,18 +8,14 @@
 module.exports = {
 
   attributes: {
-    name: {
+    link: {
       type: 'string',
       required: true,
-      unique: true,
+      unique: true
     },
-    photos: {
-      collection: 'AuthorPhoto',
-      via: 'author'
+    author: {
+      model: 'Author',
     },
-    books: {
-      collection: 'Book',
-      via: 'authors'
-    }
   }
 };
+
