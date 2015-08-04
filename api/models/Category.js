@@ -13,13 +13,15 @@ module.exports = {
       required: true,
       unique: true,
     },
+    highlight: {
+      type: 'boolean',
+    },
     bgs: {
       collection: 'CategoryBg',
       via: 'category'
     },
     headerColor: {
       model: 'HeaderColor',
-      required: true
     },
     books: {
       collection: 'Book',

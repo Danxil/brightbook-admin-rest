@@ -13,6 +13,9 @@ module.exports = {
       required: true,
       unique: true,
     },
+    about: {
+      type: 'text',
+    },
     photos: {
       collection: 'AuthorPhoto',
       via: 'author'

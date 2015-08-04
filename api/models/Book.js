@@ -72,7 +72,7 @@ module.exports = {
       type: 'integer',
     },
     about: {
-      type: 'string',
+      type: 'text',
     },
     dateFirstEdition: {
       type: 'date',
@@ -80,6 +80,9 @@ module.exports = {
     },
     length: {
       type: 'integer',
+    },
+    formSideSchema: {
+      model: 'FormSideSchema',
     },
     toJSON: function() {
       var obj = this.toObject()
