@@ -13,6 +13,10 @@ module.exports = {
       required: true,
       unique: true,
     },
+    isbn: {
+      type: 'string',
+      unique: true,
+    },
     images: {
       collection: 'BookImage',
       via: 'book'
@@ -80,6 +84,9 @@ module.exports = {
     },
     length: {
       type: 'integer',
+    },
+    isbn: {
+      type: 'string',
     },
     formSideSchema: {
       model: 'FormSideSchema',

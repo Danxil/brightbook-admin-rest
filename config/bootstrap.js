@@ -18,10 +18,15 @@ module.exports.bootstrap = function (cb) {
 	]
 
 	var coverTypes = [
-		{name: '10/30/20'},
-		{name: '20/30/40'},
-		{name: '150/200/100'}
+		{name: 'Твердый переплет'},
+		{name: 'Мягкий переплет'},
 	]
+
+	var formats = [
+		{name: '150/200/100'},
+		{name: '15/20/10'},
+	]
+
 
 	var categoryBgs = [
 		{
@@ -102,6 +107,7 @@ module.exports.bootstrap = function (cb) {
 			dateFirstEdition: 4,
 			length: 12,
 			coverType: 1,
+			format: 1,
 			formSideSchema: 2
 		},
 		{
@@ -113,6 +119,8 @@ module.exports.bootstrap = function (cb) {
 			recommendRetailPrice: 243,
 			dateFirstEdition: 4,
 			length: 12,
+			coverType: 1,
+			format: 2,
 			formSideSchema: 1
 		},
 		{
@@ -124,6 +132,8 @@ module.exports.bootstrap = function (cb) {
 			recommendRetailPrice: 243,
 			dateFirstEdition: 4,
 			length: 12,
+			coverType: 1,
+			format: 1,
 			formSideSchema: 1
 		}
 	]
@@ -154,9 +164,24 @@ module.exports.bootstrap = function (cb) {
 	]
 
 	var bookReviews = [
-		{text: 'review1', author: 'author1', book: 1},
-		{text: 'review2', author: 'author2', book: 1},
-		{text: 'review3', author: 'author3', book: 2}
+		{
+			text: 'Не думал, что лицо, которое изображено на обложке, привлечет столько людей Сергей Лещенко',
+			author: 'Сергей Лещенко',
+			book: 1,
+			id: 1
+		},
+		{
+			text: 'Не думал, что лицо, которое изображено на обложке, привлечет столько людей Сергей Лещенко',
+			author: 'Сергей Лещенко',
+			book: 1,
+			id: 2
+		},
+		{
+			text: 'Не думал, что лицо, которое изображено на обложке, привлечет столько людей Сергей Лещенко',
+			author: 'Сергей Лещенко',
+			book: 2,
+			id: 3
+		}
 	]
 
 	var authors = [
@@ -169,27 +194,29 @@ module.exports.bootstrap = function (cb) {
 	Author.create(authors).exec(function(err, authors) {
 		FormSideSchema.create(formSideSchema).exec(function() {
 			HeaderColor.create(headerColors).exec(function () {
-				CoverType.create(coverTypes).exec(function () {
-					Rubric.create(rubrics).exec(function (err, rubrics) {
-						Category.create(categories).exec(function (err, categories) {
-							CategoryBg.create(categoryBgs).exec(function (err, categoryBgs) {
-								Book.create(books).exec(function (err, books) {
-									var category = _.find(categories, function (item) {
-										return item && item.id == 1
-									})
+				BookFormat.create(formats).exec(function () {
+					CoverType.create(coverTypes).exec(function () {
+						Rubric.create(rubrics).exec(function (err, rubrics) {
+							Category.create(categories).exec(function (err, categories) {
+								CategoryBg.create(categoryBgs).exec(function (err, categoryBgs) {
+									Book.create(books).exec(function (err, books) {
+										var category = _.find(categories, function (item) {
+											return item && item.id == 1
+										})
 
-									books.forEach(function (book) {
-										if (category && book)
-											category.books.add(book)
-									})
+										books.forEach(function (book) {
+											if (category && book)
+												category.books.add(book)
+										})
 
-									BookReview.create(bookReviews).exec(function () {
-										if (category)
-											category.save().then(function () {
+										BookReview.create(bookReviews).exec(function () {
+											if (category)
+												category.save().then(function () {
+													cb()
+												})
+											else
 												cb()
-											})
-										else
-											cb()
+										})
 									})
 								})
 							})
