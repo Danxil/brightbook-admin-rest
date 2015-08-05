@@ -14,7 +14,7 @@ module.exports.policies = {
   '*': [],
 
   AuthController: {
-    '*': 'isAllowed'
+  //  '*': 'isAllowed'
   },
 
   PingController: {
